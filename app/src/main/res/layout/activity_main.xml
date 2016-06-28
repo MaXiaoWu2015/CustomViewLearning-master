@@ -11,8 +11,9 @@
     tools:context="com.example.maxiaowu.customviewlearning.MainActivity">
 
     <com.example.maxiaowu.customviewlearning.CustomTextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         custom:text="1"
         custom:textSize="50sp"
         custom:textColor="#000000"

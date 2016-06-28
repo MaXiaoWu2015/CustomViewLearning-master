@@ -85,6 +85,28 @@ public class CustomTextView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        TODO:已解决---处理当View宽高设置为wrap_content效果和match_parent一样的问题
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        int width=getPaddingLeft()+mBound.width()+getPaddingRight();
+        int height=getPaddingTop()+mBound.height()+getPaddingBottom();
+
+        if (widthMode==MeasureSpec.AT_MOST && heightMode==MeasureSpec.AT_MOST) {
+
+            setMeasuredDimension(width, height);
+        }else if (widthMode==MeasureSpec.AT_MOST)
+        {
+            setMeasuredDimension(width,heightSize);
+        }else if (heightMode==MeasureSpec.AT_MOST)
+        {
+            setMeasuredDimension(widthSize,height);
+        }
+
+
+
+
     }
 
 
